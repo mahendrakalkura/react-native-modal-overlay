@@ -68,7 +68,7 @@ class Overlay extends React.Component {
 
   render() {
     const { closeOnTouchOutside, animationDuration, children,
-          accessible, 
+          accessible,
       containerStyle, childrenWrapperStyle, easing, ...extraProps } = this.props;
     return (
       <Modal
@@ -79,7 +79,7 @@ class Overlay extends React.Component {
         {...extraProps} animationType='none'>
         <TouchableWithoutFeedback onPress={closeOnTouchOutside ? this._hideModal : null} accessible={accessible}>
           <Animatable.View animation={this.state.overlayAnimationType} duration={animationDuration} easing={easing}
-            useNativeDriver style={[styles.container, containerStyle]}>
+            useNativeDriver={false} style={[styles.container, containerStyle]}>
             <AnimatableTouchableWithoutFeedback accessible={accessible} animation={this.state.animationType} easing={easing}
               duration={animationDuration} useNativeDriver onPress={this._stopPropagation}>
               <View style={[styles.innerContainer, childrenWrapperStyle]}>
