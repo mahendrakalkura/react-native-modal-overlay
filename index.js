@@ -81,7 +81,7 @@ class Overlay extends React.Component {
           <Animatable.View animation={this.state.overlayAnimationType} duration={animationDuration} easing={easing}
             useNativeDriver={false} style={[styles.container, containerStyle]}>
             <AnimatableTouchableWithoutFeedback accessible={accessible} animation={this.state.animationType} easing={easing}
-              duration={animationDuration} useNativeDriver onPress={this._stopPropagation}>
+              duration={animationDuration} useNativeDriver={false} onPress={this._stopPropagation}>
               <View style={[styles.innerContainer, childrenWrapperStyle]}>
                 {children instanceof Function ? children(this._hideModal, this.state) : children}
                 {/* Passing this reference in render prop so that the parent component can access all the children's methods */}
